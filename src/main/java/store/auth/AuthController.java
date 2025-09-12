@@ -1,5 +1,7 @@
 package store.auth;
 
+import java.util.Map;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +18,11 @@ public interface AuthController {
     @PostMapping("/auth/login")
     public ResponseEntity<TokenOut> login(
         @RequestBody LoginIn in
+    );
+
+    @PostMapping("/auth/solve")
+    public ResponseEntity<Map<String, String>> solve(
+        @RequestBody TokenOut in
     );
 
 }
